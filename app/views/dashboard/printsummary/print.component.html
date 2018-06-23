@@ -1,0 +1,151 @@
+<div id="print-section">
+  <!-- <div class="app align-items-center">
+    <div class="container">
+      <h2 class="page_heading">Registered Medical Insurance</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12">
+          <div class="page_container">
+            <div class="inside_page_container">
+              <table class="view_table" style="border-collapse: separate; border-spacing: 1.2em;" width="100%" cellspacing="0" cellpadding="0"
+                border="0">
+                <tbody>
+                  <tr>
+                    <th align="left">Nationality</th>
+                    <th align="left">Name</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{Nationality}}</td>
+                    <td align="left"></td>
+                  </tr>
+                  <tr>
+                    <th align="left">Insurance Period</th>
+                    <th align="left">Civil ID</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{insPeriod}} Year</td>
+                    <td align=الجابرية"left">{{civilID}}</td>
+                  </tr>
+                  <tr>
+                    <th align="left">Amount Paid</th>
+                    <th align="left">Covering Start Date</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{insAmount}}.000 KD</td>
+                    <td align="left">NA</td>
+                  </tr>
+                  <tr>
+                    <th align="left">Payment ID</th>
+                    <th align="left">Covering End Date</th>
+                  </tr>
+                  <tr>
+                    <td align="left"><span class="statement">{{knetPaymntId}}</span></td>
+                    <td align="left">NA</td>
+                  </tr>
+                  <tr>
+                    <td align="left"></td>
+                    <td align="left"><img [src]="imageUrl" width="200px" height="auto;"></td>
+                  </tr>
+                  <tr>
+                    <td align="left"></td>
+                    <td align="left">{{paymentid}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <hr>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right"><span class="statement"><strong>Health Insurance Department</strong> <br> Please provide the original copy to Ministry of Interiors</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <span class="statement">
+                      The Health insurance Service is renewed successfully , you can collect your health insurance ID and form any time from tomorrow from Company Service center in Jaberia
+                      </span></td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="table-responsive-sm">
+  <div style="width:650px; background:#fff; margin:20px auto; position:relative">
+      <img src="assets/img/bg1-text.jpg" style="width:650px;"/>
+        
+        <div style=" position:absolute; top:46px; width:100%;">
+        <table style="border-collapse: separate;margin: 0px auto; font-size:14px; border-spacing: 0.8em; font-family:Arial, Helvetica, sans-serif" width="92%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                  <tr>
+                    <th colspan="2" align="center"><h3  style="text-align:center; margin-bottom:50px; font-size:24px; font-weight:700" >Insurance Receipt</h3></th>
+                   
+                  </tr>
+                  <tr>
+                    <th width="50%" align="left">Nationality</th>
+                    <th width="50%" align="left">Name</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{Nationality}}</td>
+                    <td align="left">{{insureeFullName}}</td>
+                    
+                  </tr>
+                  <tr>
+                    <th align="left">Insurance Period</th>
+                    <th align="left">Civil ID</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{insPeriod}}</td>
+                    <td align="left">{{civilID}}</td>
+                  </tr>
+                  <tr>
+                    <th align="left">Amount Paid</th>
+                    <th align="left">Covering Start Date</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{insAmount}}.000 KD</td>
+                    <td align="left">{{StartDate}}</td>
+                  </tr>
+                  <tr>
+                    <th align="left">Payment ID</th>
+                    <th align="left">Covering End Date</th>
+                  </tr>
+                  <tr>
+                    <td align="left">{{knetPaymntId}}</td>
+                    <td align="left">{{EndDate}}</td>
+                  </tr>       
+                  <tr>
+                    <th align="left">Type of Insurance</th>
+
+                    <td align="left"></td>
+                  </tr>
+                  
+                 
+                  <tr>
+                    <td align="left" style="vertical-align: top">Health Insurance</td>
+                    <td align="left"style="height:90px; vertical-align:top;"><img [src]="imageUrl" width="100px" height="auto;"></td>
+                  </tr>
+                  <tr><td colspan="2"><hr style="margin:0px;"></td></tr>
+                  <tr>
+                    <td style="font-size: 11px;" colspan="2" align="right"><span class=""><strong style="font-size: 14px;">The Health insurance Service is renewed successfully</strong> <br> you can collect your health insurance ID and form any time from tomorrow from Company Service center in Jaberia </span></td>
+                  </tr>
+                  <tr>
+                      <td style="font-size: 11px;" colspan="2" align="right"><span class=""><strong style="font-size: 14px;"> تم تنفيذ الخدمة وتجديد الضمان الصحي بنجاح</strong> <br> 
+                        يمكنك الحصول على نموذج و بطاقة الضمان الصحي أي وقت غدا من مركزخدمة الشركالجابرية
+                         </span></td>
+                    </tr>
+              
+                </tbody></table>
+        </div>
+        
+    </div>
+    </div>
+ 
+</div>
+<div class="text-center mt-4 mb-2">
+    <button type="submit" class="submitbtn" (click)="print()">Print</button>
+  </div>
+  <br>
+  <div class="clearfix"></div>

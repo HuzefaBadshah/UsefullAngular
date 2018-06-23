@@ -1,0 +1,46 @@
+{    "Login Form Starts":"---------------------------------------------",
+
+    "HEADING": "نظام تسجيل الدخول في وزارة الصحة",
+    "SUB-HEADING": "تسجيل دخول خدمة eGov للعميل",
+    "USERNAME": "اسم المستخدم",
+    "PASSWORD": "كلمه السر",
+    "NEW-REG": "تسجيل جديد",
+    "F-Pass": "هل نسيت كلمة المرور؟",
+    "INDIVIDUAL": "فرد",
+    "COMPANY": "شركة",
+    "SERVICE-CENTER": "مركز خدمات",
+    "MOI": "MOI",
+    "LOGIN": "تسجيل الدخول",
+    "REMEMBER": "تذكرنى",
+    "COPYRIGHT": "حقوق النشر",
+    "COPYRIGHT2":"2018 جميع الحقوق محفوظة",
+
+    "Login Form Ends":"-----------------------------------------------",
+
+    "Company Registration Form Starts":"-------------------------------",
+
+"civilId":"الرقم المدني للشركة",
+"companyName":"اسم الشركة",
+"password":"كلمه السر",
+"email":"البريد الإلكتروني",
+"address":"عنوان",
+"A_sponsorId":"رقم الكفيل المعتمد",
+"chamberId":"رقم الشركة التجاري",
+"loginId":"كلمة المرور",
+"phoneNo":"رقم الهاتف",
+"poBox":"صندوق البريد",
+"fax":"الفاكس",
+"mandoob_id":"رقم المندوب",
+"block": "",
+"street":"",
+"district_code": "",
+"building":"",
+"district_name":"",
+"proceed":"تقدم",
+"add_more": "أضف المزيد",
+
+    "Company Registration Form Ends":"-------------------------------",
+
+    "search": "بحث"
+
+}

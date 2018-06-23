@@ -1,0 +1,64 @@
+<div class="public_header">
+    <div class="container-fluid">
+        <div class="logo_sec pull-left">
+            <a href="#">
+                <img class="img-fluid" src="assets/img/brand/public_head_logo.png" />
+            </a>
+        </div>
+        <div class="lag_sec pull-right">
+            <div class="header_right">
+                <div class="lag_change">
+                    <select class="form-control">
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                      </select>
+                </div>
+
+                <div class="login_info">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app align-items-center mb-5">
+  <div class="container">
+    <h2 class="page_heading">
+      Registration Successful</h2>
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="page_container">
+            <div class="inside_page_container pb-0"  id="print-section">
+              <div class="container">
+                <div class="success_icon mt-5" align="center">
+                  <img src="assets/img/download.png">
+                </div>
+                <div class="clearfix"></div>
+                <div class="transaction_subheading">Registration Successful</div>
+                <div class="statement">Your registration has been successfully completed.</div>
+                <div class="statement mb-0 pb-0">Username
+
+                  <strong>{{loginusername}}</strong>
+                </div>
+                <div class="statement">Password
+                  <strong>{{loginpassword}}</strong>
+                </div>
+                <div align="center" class="pb-5">
+                
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>      
+             <div class="text-center mt-4 mb-2">
+                 <button type="submit" class="submitbtn" (click)="gotoBack()">Back</button>
+            <button type="submit" class="submitbtn" (click)="print()" >Print</button>
+            </div>
+            <br>
+            <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="appfooter"> Copyright © 2018 All rights reserved. 
+</footer>

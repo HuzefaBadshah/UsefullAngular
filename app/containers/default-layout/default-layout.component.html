@@ -1,0 +1,65 @@
+<app-header
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo1.png', width: 263, height: 83, alt: 'logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/logo-small.png', width: 40, height: 40, alt: 'logo'}"
+  [sidebarToggler]="'lg'"
+  [asideMenuToggler]="'lg'"> 
+   
+  <div class="heading-text-top">
+  <p>MOH companies online health insurance system</p>
+  <p>وزارة الصحة - نظام الضمان الصحي الآلي للشركات</p>
+  </div>
+  
+  <ul class="nav navbar-nav ml-auto right-side-nav">
+    <li class="nav-item mr-2">
+<div class="lag_change">
+    
+        <select (change)="switchLanguage($event.target.value, userType)" class="form-control">
+        <option value="en" ng-reflect-value="0">English</option>
+        <option value="ar" ng-reflect-value="0">Arabic</option>
+        </select>
+        </div>
+</li>
+    
+    
+    <!--<li class="nav-item dropdown" dropdown placement="bottom right">
+    
+      
+         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+       {{userType}} <i class="fa fa-angle-down"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">           
+        <a class="dropdown-item"  (click)="logout()"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+      
+    </li>-->
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar [fixed]="true" [display]="'lg'">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <!--<ol class="breadcrumb">
+      <app-breadcrumb></app-breadcrumb>
+     
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <a class="btn" href="#"><i class="icon-speech"></i></a>
+          <a class="btn" [routerLink]="['/dashboard']"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+          <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
+        </div>
+      </li>
+    </ol>-->
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+  
+</div>
+<app-footer>
+  <span class="ml-auto mr-auto">Copyright &copy; 2018 All rights reserved. </span>
+</app-footer>

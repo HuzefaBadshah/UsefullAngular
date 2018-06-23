@@ -1,0 +1,192 @@
+
+<!-- <div class="public_header">
+    <div class="container-fluid">
+        <div class="logo_sec pull-left">
+            <a href="#">
+                <img class="img-fluid" src="assets/img/brand/public_head_logo.png" />
+            </a>
+        </div>
+        <div class="lag_sec pull-right">
+            <div class="header_right">
+                <div class="lag_change">
+                    <select class="form-control">
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                      </select>
+                </div>
+
+                <div class="login_info">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="app align-items-center mb-5">
+    <div class="container">
+      <div  id="print-section">
+      <h2 class="page_heading">
+       Transaction Summary</h2>
+      <div class="row justify-content-center">
+        <div class="col-sm-8">
+          <div class="page_container">
+  
+              <div class="inside_page_container">
+                  <div class="inside_page_container pb-0">
+                    <div class="container">
+                      <div class="success_icon mt-3" align="center">
+                        <img src="assets/img/download.png" width="46" height="46">
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="transaction_subheading">Transaction Successful</div>
+                      <div class="statement">Your transaction has been successfully completed.</div>
+                       <!--<div class="statement mb-0 pb-0">Amount Paid
+  
+                        <strong>{{totalAmount}}.000 KD</strong>
+                      </div>
+                      <div class="statement">Your Transaction reference number is 
+                        <strong>{{knetPaymntId}}</strong>
+                      </div>
+                     Changes for UI Ashutosh-->
+  
+                     <table style="font-size:14px; border-spacing: 0.1em;border:1px solid #747675; font-family:Arial, Helvetica, sans-serif; color:#555; margin:0% 0.5%;" width="99%" cellspacing="1" cellpadding="0" border="1">
+                        <tbody>
+                        
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                            <Strong>Status:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                             {{result}}
+                          </td>
+                        </tr>
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                              <Strong>Knet Payment Id:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                              {{knetPaymntId}}
+                          </td>
+                        </tr>
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px;  border:none;text-align:right">
+                              <Strong>Reference Id:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                             {{refId}}
+                          </td>
+                        </tr>
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px;border:none; text-align:right">
+                              <Strong>Tracking Id:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                              {{knetTrackId}}
+                          </td>
+                        </tr>
+                        <tr style="border:none;">
+                            <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                                <Strong>Auth Code:</Strong>
+                            </td>
+                            <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                                {{authCode}}
+                            </td>
+                          </tr>
+                          <tr style="border:none;">
+                              <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                                  <Strong>Post Date:</Strong>
+                              </td>
+                              <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                                    {{postDate | date : 'dd/MM/yyyy'}}
+                              </td>
+                            </tr>
+  
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                              <Strong>Amount:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                              {{totalAmount}}.000 KD
+                          </td>
+                        </tr>
+                        <tr style="border:none;">
+                          <td width="50%" valign="top" style="padding:5px 5px; border:none; text-align:right">
+                              <Strong>Trans Id:</Strong>
+                          </td>
+                          <td width="50%" style="text-align:left; border:none; padding:5px 5px;" valign="top">
+                             {{transId}}
+                          </td>
+                        </tr>
+                       
+                        </tbody>
+                        
+                        </table>
+                      
+                      <!--Ended Here-->
+  
+  
+  
+  
+  
+  
+  
+  
+                     <hr>
+                     <div class="statement text-right success-info-in"><strong>The Health insurance Service is renewed successfully</strong> 
+                      you can collect your health insurance ID and form any time from tomorrow from Company Service center in Jaberia
+                    </div>
+                    <div class="statement text-right success-info-in"><strong> تم تنفيذ الخدمة وتجديد الضمان الصحي بنجاح</strong> 
+                       
+                      يمكنك الحصول على نموذج و بطاقة الضمان الصحي أي وقت غدا من مركزخدمة الشركات بالجابرية
+                           
+                    </div>
+  
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+  
+              </div>
+              
+          </div>
+        </div>
+      </div> 
+    </div>
+  
+    </div>
+  
+             <div class="text-center mt-5 mb-2">
+                  <button type="submit" class="submitbtn" (click)="gotoBack()">Search</button>
+                <button (click)="openModal('modal-1');" type="button" class="submitbtn">Print</button>
+              </div>
+                <br>
+                <div class="clearfix"></div>
+  </div>
+  
+  
+  <!-- **************************PopOver Starts************************* -->
+  
+  <sc-modal id="modal-1" class="default print-pop-up" #modal>
+    <div class="modal">
+            <div class="modal-header">
+                <i class="fa fa-print fa-lg blue-color-icon"></i> 
+               <div class="float-right model-close-btn">
+                  <button (click)="closeModal('modal-1');">
+                  <i class="fa fa-close fa-lg "></i>
+                  </button>
+               </div>
+            </div>
+        <div class="modal-body">
+          <p class="heading"><strong>Please Select option for print</strong></p>
+            <button type="submit" class="submitbtn" (click)="print()" >Print Invoice</button>
+            <button type="submit" class="submitbtn" (click)="printInsurance()">Print Insurance</button>
+        </div>
+    </div>
+    <div class="modal-background"></div> 
+  </sc-modal> 
+  
+  <!-- ************************************ PopOver Ends ********************* -->
+  
+  
+  
+  

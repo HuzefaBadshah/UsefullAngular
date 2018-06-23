@@ -1,0 +1,110 @@
+<div class="lag_change login_lg_change pull-right">
+  <select (change)="switchLanguage($event.target.value)" class="form-control">
+    <option value="en">English</option>
+    <option value="ar">Arabic</option>
+  </select>
+</div>
+<div class="app flex-row align-items-center">
+
+  <div class="container">
+    <h2 class="login_logo text-center">
+      <img src="assets/img/brand/logo.png" />
+    </h2>
+   
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="page_container">
+          <div class="inside_container">
+            <div class="login_subheading text-center">{{'SUB-HEADING' | translate}}</div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                <input class="form-control" maxlength="50" placeholder="{{'USERNAME' | translate}}" formControlName="username" type="text">
+                <p class="erros-msg" *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">Username is Required</p>
+
+              </div>
+
+              <div class="form-group mb-0">
+                <input class="form-control" maxlength="15" placeholder="{{'PASSWORD' | translate}}" formControlName="password" type="password">
+
+                <p class="erros-msg" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">Password is Required</p>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <a href="#/pages/register">{{'NEW-REG' | translate}}</a>
+                </div>
+                <div class="col-6 text-right">
+                  <!--<a href="#">{{'F-Pass' | translate}}</a>-->
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col text-center login-radio radio_wrapper">
+                <div class="radio radio-primary d-inline-block">
+                 <input type="radio" [checked]='true' formControlName="userType" id="inlineRadio1" value="individual">
+                  <label for="individual">
+                    {{'INDIVIDUAL' | translate}}
+                  </label>
+                  </div>
+                  <div class="radio radio-primary d-inline-block">
+                  <input type="radio" formControlName="userType" id="inlineRadio2" value="company">
+                  <label for="inlineRadio2">
+                     {{'COMPANY' | translate}}
+                  </label>
+                  </div>
+                   <div class="radio radio-primary d-inline-block">
+                   <input type="radio" formControlName="userType" id="inlineRadio3" value="servicecenter">
+                  <label for="inlineRadio3">
+                     {{'SERVICE-CENTER' | translate}}
+                  </label>
+                  </div>
+                  <div class="radio radio-primary d-inline-block">
+                  <input  type="radio" formControlName="userType" id="inlineRadio4" value="moi">
+                  <label for="inlineRadio4">
+                     MOI
+                  </label>
+                  </div>
+ 
+
+                </div>
+
+
+              </div>
+
+              <button type="submit" [disabled]="loginForm.invalid" class="btn btn-outline-primary btn-lg login_btn btn-block">{{'LOGIN' | translate}}</button>
+              <div class="checkbox">
+              <input id="login-checkbox" checked="checked" name="remember" type="checkbox">
+              <label for="login-checkbox">
+                 {{'REMEMBER' | translate}} </label>
+                </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- <footer class="login-footer">Copyright &copy; 2018 All rights reserved. </footer> -->
+
+    <footer class="login-footer">
+      <div>{{'COPYRIGHT' | translate}} &copy; {{'COPYRIGHT2' | translate}}</div>
+    </footer>
+  
+
+</div>
+
+<!-- 
+    "HEADING": "MOH Insurance Login System",
+    "SUB-HEADING": "Customer eGov Payment Service Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "NEW-REG": "New Registration",
+    "F-Pass": "Forgot Password?",
+    "INDIVIDUAL": "Individual",
+    "COMPANY": "Company",
+    "SERVICE-CENTER": "Service Center",
+    "MOI": "MOI",
+    "LOGIN": "LOGIN",
+    "REMEMBER": "Remember me",
+    "COPYRIGHT": "Copyright",
+    "COPYRIGHT2":"2018 All rights reserved."
+-->

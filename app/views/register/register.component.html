@@ -1,0 +1,275 @@
+<div class="public_header">
+    <div class="container-fluid">
+        <div class="logo_sec pull-left">
+            <a href="#">
+                <img class="img-fluid" src="assets/img/brand/public_head_logo.png" />
+            </a>
+        </div>
+        <div class="lag_sec pull-right">
+            <div class="header_right">
+                <div class="lag_change">
+                    <select (change)="switchLanguage($event.target.value)" class="form-control">
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                      </select>
+                </div>
+
+                <div class="login_info">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app align-items-center">
+    <div class="container">
+        <h2 class="page_heading">New Registeration</h2>
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                <div class="page_container">
+                    <div class="inside_page_container pb-0">
+                    <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group mb-0">
+                                    <div class="postion_rel">
+                                        <input class="form-control" maxlength="50" formControlName="civilid" placeholder="Search Family Head/Individual Civil ID"  data-validation="number" type="text" #searchVal>
+                                        <button type="submit" 
+                                        [disabled]="searchForm.invalid" class="srch_btn" id="submitbtn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr class="mb-0" />
+                    <div class="clearfix"></div>
+                <div *ngIf="showIndDetails">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmitReg()">
+                    <div class="inside_page_container">
+                        <div class="basic-form">
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Family Head/Individual Civil ID</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="50" formControlName="civilID" placeholder="Please enter Family Head/individual CivilID" type="text" >
+                                    <p class="erros-msg" *ngIf="(registerForm.get('civilID').touched || registerForm.get('civilID').dirty) && !registerForm.get('civilID').valid">
+                                            {{registerForm.get('civilID').hasError('required') ? 'Civil ID is required' : 'Invalid Civil ID'}}</p> 
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Full Name</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="250" formControlName="fullName" id="fullName" placeholder="Please enter Full Name" type="text">
+                                    register         <p class="erros-msg" *ngIf="(registerForm.get('fullName').touched || registerForm.get('fullName').dirty) && !registerForm.get('fullName').valid">
+                                            {{registerForm.get('fullName').hasError('required') ? 'This is field required' : 'Invalid full name'}}
+                                    </p>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Birth Reg No</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="50" formControlName="birthRegNo" id="birthRegNo" placeholder="Pleae enter Birth Reg No" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('birthRegNo').touched || registerForm.get('birthRegNo').dirty) && !registerForm.get('birthRegNo').valid">
+                                            {{registerForm.get('birthRegNo').hasError('required') ? 'This is field required' : 'Invalid birth registration no'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Gender</label>
+                                    <span class="mandatory_field">*</span>
+                                    <div class="stylish_radio">
+                                        <div class="radio radio-primary  form-check-inline">
+                                            <input type="radio" formControlName="gender" id="radio1" value="1">
+                                            <label for="radio1">
+                                                <span>Male</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio radio-primary  form-check-inline">
+                                            <input type="radio" formControlName="gender" id="radio2" value="2">
+                                            <label for="radio2">
+                                                <span>Female</span>
+                                            </label> 
+                                        </div>
+                                    </div>
+  
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Date of Birth</label>
+                                    <span class="mandatory_field">*</span>
+                                    <div class="input-group">
+                                        <input class="form-control" maxlength="12" formControlName="dob" placeholder="DD/MM/YY" type="date"> 
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="erros-msg" *ngIf="(registerForm.get('dob').touched || registerForm.get('dob').dirty) && !registerForm.get('dob').valid">This field is required</p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Job Title</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="50" id="jobTitle" formControlName="jobTitle" placeholder="Please enter Job Title" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('jobTitle').touched || registerForm.get('jobTitle').dirty) && !registerForm.get('jobTitle').valid">
+                                        {{registerForm.get('jobTitle').hasError('required') ? 'This is field required' : 'Invalid job title'}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Sponsor ID</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="20" formControlName="sponsId" placeholder="Please enter Sponsor ID" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('sponsId').touched || registerForm.get('sponsId').dirty) && !registerForm.get('sponsId').valid">
+                                        {{registerForm.get('sponsId').hasError('required') ? 'This is field required' : 'Invalid sponsor id'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Phone Number</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" id="phoneNumber" maxlength="20" formControlName="phoneNo" placeholder="Please enter Phone Number" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('phoneNo').touched || registerForm.get('phoneNo').dirty) && !registerForm.get('phoneNo').valid">
+                                        {{registerForm.get('phoneNo').hasError('required') ? 'This is field required' : 'Invalid phone number'}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Fax</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="20" formControlName="faxNo" placeholder="Please enter Fax Number" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('faxNo').touched || registerForm.get('faxNo').dirty) && !registerForm.get('faxNo').valid">
+                                            {{registerForm.get('faxNo').hasError('required') ? 'This is field required' : 'Invalid fax'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Email</label>
+                                    register  <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="100" formControlName="emailId" id="email" placeholder="Please enter Email ID" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('emailId').touched || registerForm.get('emailId').dirty) && !registerForm.get('emailId').valid">
+                                        {{registerForm.get('emailId').hasError('required') ? 'This field is required' : 'Please enter valid email address'}}</p>
+                                    <!-- <p class="erros-msg" *ngIf="registerForm.get('emailId').hasError('email') && registerForm.get('emailId').touched"></p> -->
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Block</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="250" formControlName="block" placeholder="Please enter Block" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('block').touched || registerForm.get('block').dirty) && !registerForm.get('block').valid">
+                                            {{registerForm.get('block').hasError('required') ? 'This is field required' : 'Invalid block'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Building</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="250" formControlName="building" placeholder="Please enter building number"/>
+                                    <p class="erros-msg" *ngIf="(registerForm.get('building').touched || registerForm.get('building').dirty) && !registerForm.get('building').valid">
+                                            {{registerForm.get('building').hasError('required') ? 'This is field required' : 'Invalid building'}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Street</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="250" formControlName="street" placeholder="Please enter street" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('street').touched || registerForm.get('street').dirty) && !registerForm.get('street').valid">
+                                            {{registerForm.get('street').hasError('required') ? 'This is field required' : 'Invalid street'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>PO Box</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="50" formControlName="poBox" placeholder="Please enter PO Box Number"/>
+                                    <p class="erros-msg" *ngIf="(registerForm.get('poBox').touched || registerForm.get('poBox').dirty) && !registerForm.get('poBox').valid">
+                                            {{registerForm.get('poBox').hasError('required') ? 'This is field required' : 'Invalid po box'}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>District Code</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="10" formControlName="districtcode" placeholder="Please enter District Code" type="text">
+                                    <p class="erros-msg" *ngIf="(registerForm.get('districtcode').touched || registerForm.get('districtcode').dirty) && !registerForm.get('districtcode').valid">
+                                            {{registerForm.get('districtcode').hasError('required') ? 'This is field required' : 'Invalid district code'}}
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>District Name</label>
+                                    <span class="mandatory_field">*</span>
+                                    <input class="form-control" maxlength="250" formControlName="districtName" placeholder="Please enter District Name"/>
+                                    <p class="erros-msg" *ngIf="(registerForm.get('districtName').touched || registerForm.get('districtName').dirty) && !registerForm.get('districtName').valid">
+                                            {{registerForm.get('districtName').hasError('required') ? 'This is field required' : 'Invalid district name'}}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4 mb-2">
+                                <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
+                                <button type="submit" class="submitbtn">Proceed</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                </div>
+                    <hr class="mb-2 mt-0" />
+                <div class="clearfix"></div>
+
+  
+  <div class="clearfix"></div> 
+            <div *ngIf="showOTP">
+                <form [formGroup]="otpForm" (ngSubmit)="onSubmitOtp()">
+                    <div class="inside_page_container">
+                        <div class="basic-form">
+                            <div class="row otp-form justify-content-sm-center">
+                                <div class="form-group col-sm-8 text-center">
+                                    <label>One Time Password Verification</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <span>
+                                                    <i class="fa fa-lock"></i>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <input class="form-control" placeholder="Enter One Time Password (OTP)" maxlength="10" formControlName="OTP" vtype="text" >
+
+                                    </div>
+                                    <!--<div class="row">
+                                        <div class="col-lg-12 text-right">
+                                            <a href="#"><div (click)="onSubmitOtp()">Resend OTP</div></a>
+                                        </div>
+                                    </div>-->
+                                </div>
+
+                            </div>
+
+
+                            <div class="text-center mt-4 mb-2">
+                                <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
+                                <button type="submit" class="submitbtn" [disabled]="otpForm.invalid">Register</button>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="appfooter"> Copyright © 2018 All rights reserved. 
+</footer>

@@ -1,0 +1,228 @@
+<div class="app align-items-center mb-5">
+  <div class="container">
+    <h2 class="page_heading">{{'compReg' | translate}}</h2>
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="page_container">
+          <!-- <div class="inside_page_container pb-0">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group mb-0">
+                  <div class="postion_rel">
+                    <input class="form-control" placeholder="Search Family Head/Individual Civil ID" name="search" data-validation="number" type="text" #searchId>
+                    <button class="srch_btn" name="submit" id="submit" type="submit" (click)="onSearch(searchId.value)">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <hr class="mb-0" />  
+          <div class="clearfix"></div>
+          <div *ngIf="true" class="inside_page_container"> 
+            <div class="basic-form"> 
+              <form [formGroup]="companyRegForm" (ngSubmit)="onSubmit()">
+                <!-- First Column Starts -->
+                <div class="row"> 
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group ">
+                      <label for="exampleInputEmail1">{{'civilId' | translate}}</label>
+                       <span class="mandatory_field">*</span>
+                      <input type="text"  maxlength="50" class="form-control" id="exampleInputEmail1"  placeholder="Please enter company civil Id" formControlName="companyCivilId">
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('companyCivilId').touched || companyRegForm.get('companyCivilId').dirty) && !companyRegForm.get('companyCivilId').valid">
+                                            {{companyRegForm.get('companyCivilId').hasError('required') ? "This is required field" : "This is invalid civilId"}</p> 
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'companyName' | translate}}</label>
+                       <span class="mandatory_field">*</span>
+                      <input type="text" maxlength="250" class="form-control" id="compName" placeholder="{{'compNameMsg' | translate}}" formControlName="companyName">
+                            <p class="erros-msg" *ngIf="(companyRegForm.get('companyName').touched || companyRegForm.get('companyName').dirty) && !companyRegForm.get('companyName').valid">
+                                            {{companyRegForm.get('companyName').hasError('required') ? "This is required field" : "This is invalid Company Name"}}</p> 
+                      
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'password' | translate}}</label>
+                       <span class="mandatory_field">*</span>
+                      <input type="password" maxlength="15"  class="form-control" id="compPassword" placeholder="{{'pswdHolderMsg' | translate}}" formControlName="password">
+                        <p class="erros-msg" *ngIf="(companyRegForm.get('password').touched || companyRegForm.get('password').dirty) && !companyRegForm.get('password').valid">
+                        {{'This field is required'}}</p> 
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'email' | translate}}</label>
+                       <span class="mandatory_field">*</span>
+                      <input type="email" maxlength="100"  class="form-control" id="compEmail" placeholder="{{'mailPlaceHolder' | translate}}" formControlName="email">
+                       <p class="erros-msg" *ngIf="(companyRegForm.get('email').touched || companyRegForm.get('email').dirty) && !companyRegForm.get('email').valid">
+                        {{companyRegForm.get('email').hasError('required') ? "This field is required" : "Please enter valid email"}}</p> 
+                    </div>
+
+                    <div class="form-group">
+                      <label>Block</label>                      
+                      <input class="form-control" maxlength="250" formControlName="block" placeholder="{{'blockPlaceHolder' | translate}}" type="text">
+                     <p class="erros-msg" *ngIf="(companyRegForm.get('block').touched || companyRegForm.get('block').dirty) && !companyRegForm.get('block').valid">
+                      {{'InvalidBlock' | translate}}</p> 
+                    </div>
+                    <div class="form-group">
+                      <label>Street</label>                      
+                      <input class="form-control" maxlength="250" formControlName="street" placeholder="Please enter street" type="text">
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('street').touched || companyRegForm.get('street').dirty) && !companyRegForm.get('street').valid">
+                        {{'InvalidBlock' | translate}}</p> 
+                    </div>
+                    <div class="form-group">
+                      <label>District Code</label>                      
+                      <input class="form-control" maxlength="10" value="6546" formControlName="districtCode"  placeholder="{{'disCodeHolder' | translate}}" type="text">
+                       <p class="erros-msg" *ngIf="(companyRegForm.get('districtCode').touched || companyRegForm.get('districtCode').dirty) && !companyRegForm.get('districtCode').valid">
+                        {{'invDistCode' | translate}}</p> 
+                    </div>
+
+                     <div class="form-group" formArrayName="aSponsor">
+                      <label for="exampleInputPassword1">{{"A_sponsorId" | translate}}</label>                     
+                      <div *ngFor="let sponsor of SponsorId.controls; let i = index">
+
+                        <div [ngClass]="{'input-group close-input':(i>0)}">
+                          <input type="text" class="form-control" maxlength="10" id="authSponserId" placeholder="{{'sponsId' | translate}}" formControlName="{{i}}">
+                          <div *ngIf="SponsorId.length >1 && i>0" (click)="onRemoveID('aSponsor', i)" class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="fa fa-close"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <p class="erros-msg" *ngIf="sponsor.hasError('required') && sponsor.touched">{{'sponsId' | translate}}</p>
+                      </div>
+                      
+                    </div>
+                   
+                    <button class="addmore-btn" *ngIf="SponsorId.length < 5" type="button" (click)="onAddSponsorID()">
+                      <i class="icon-plus icons"></i>{{'add_more' | translate}}</button>
+                    <br>
+
+                  </div>
+                  <!-- First Column Ends -->
+
+                  <!-- Second Column Starts -->
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'chamberId' | translate}}</label>
+                      <input type="text" class="form-control" maxlength="50" id="compCommerceId" placeholder="Please enter Company Chamber Of Commerce ID" formControlName="chamberId">
+                       <p class="erros-msg" *ngIf="(companyRegForm.get('chamberId').touched || companyRegForm.get('chamberId').dirty) && !companyRegForm.get('chamberId').valid">
+                        {{'Invalid chamber id'}}</p> 
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'loginId' | translate}}</label>
+                        <span class="mandatory_field">*</span>     
+                      <input type="text" class="form-control" maxlength="50" id="compLoginId" placeholder="Please enter Login ID" formControlName="loginId">
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('loginId').touched || companyRegForm.get('loginId').dirty) && !companyRegForm.get('loginId').valid">
+                        {{'This field is required'}}</p> 
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'phoneNo' | translate}}</label>
+                      <span class="mandatory_field">*</span>  
+                      <input type="text" class="form-control"  maxlength="20" id="phoneNumber" placeholder="Please enter phone no" formControlName="phoneNo">
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('phoneNo').touched || companyRegForm.get('phoneNo').dirty) && !companyRegForm.get('phoneNo').valid">
+                        {{companyRegForm.get('phoneNo').hasError('required') ? 'This field is required' : 'Invalid phone no'}}</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'fax' | translate}}</label>
+                      <input type="text" class="form-control"  maxlength="20" id="compFax" placeholder="Please enter fax" formControlName="fax">
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('fax').touched || companyRegForm.get('fax').dirty) && !companyRegForm.get('fax').valid">
+                        {{'Invalid fax'}}</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Building</label>
+                      <input class="form-control"  maxlength="250" formControlName="building" placeholder="Please enter building number" />
+                       <p class="erros-msg" *ngIf="(companyRegForm.get('building').touched || companyRegForm.get('building').dirty) && !companyRegForm.get('building').valid">
+                        {{'Invalid building'}}</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">{{'poBox' | translate}}</label>
+                      <input type="text" class="form-control" maxlength="10" id="poBox" placeholder="Please enter PO Box" formControlName="poBox">
+                       <p class="erros-msg" *ngIf="(companyRegForm.get('poBox').touched || companyRegForm.get('poBox').dirty) && !companyRegForm.get('poBox').valid">
+                        {{'Invalid po box'}}</p>
+                    </div>
+                    <div class="form-group">
+                      <label>District Name</label>
+                      <input class="form-control"  maxlength="220" formControlName="districtName" placeholder="Please enter District Name" />
+                      <p class="erros-msg" *ngIf="(companyRegForm.get('districtName').touched || companyRegForm.get('districtName').dirty) && !companyRegForm.get('districtName').valid">
+                        {{'Invalid district name'}}</p>
+                    </div>
+                    <div class="form-group" formArrayName="mandoob">
+                      <label for="exampleInputPassword1">{{'mandoob_id' | translate}}</label>
+                      <div *ngFor="let mandoob of MandoobId.controls; let i = index">
+
+                        <div [ngClass]="{'input-group close-input':(i>0)}">
+                          <input type="text" class="form-control" maxlength="50"  id="mandoobId" placeholder="Mandoob_ID" formControlName="{{i}}">
+                          <div *ngIf="MandoobId.length >1 && i>0" (click)="onRemoveID('mandoob', i)" class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="fa fa-close"></i>
+                            </span>
+                          </div> 
+                        </div>
+                        <div class="input-group close-input">
+                          <div *ngIf="MandoobId.length >1 && i>0" (click)="onRemoveID('mandoob_id', i)" class="input-group-append">
+                          </div>
+                        </div>
+                        <p class="erros-msg" *ngIf="mandoob.hasError('required') && mandoob.touched">Mandoob_ID is Required</p>
+                      </div>
+                    </div>
+                  
+                     <button class="addmore-btn" *ngIf="MandoobId.length < 5" type="button" (click)="onAddMandoobID()">
+                      <i class="icon-plus icons"></i>{{'add_more' | translate}}</button> 
+                    <br>
+                  </div>
+                </div> 
+                <!-- Second Column Ends -->
+                <div class="text-center mt-5 mb-2">
+                  <button type="submit" class="submitbtn">{{'proceed' | translate}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <hr class="mb-2 mt-0" />
+          <div class="clearfix"></div>
+          <div *ngIf="hasOTP" class="inside_page_container">
+            <div class="basic-form">
+              <div class="row otp-form justify-content-sm-center">
+                <div class="form-group col-sm-8 text-center">
+                  <label>One Time Password Verification</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <span>
+                          <i class="fa fa-lock"></i>
+                        </span>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="Enter One Time Password (OTP)" type="text" #OTP> 
+                  </div>
+                  <!--<div class="row">
+                    <div class="col-lg-12 text-right">
+                      <a href="#">Resend OTP</a>
+                    </div>
+                  </div>-->
+                </div>
+
+              </div>
+
+              <div class="text-center mt-4 mb-2">
+                <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
+                <button type="button" class="submitbtn" (click)="verifyOTP(OTP.value)">Register</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
